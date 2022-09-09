@@ -41,8 +41,14 @@ export const Home: React.FC = () => {
                         )
                     }
                     return (
-                        <div key={video?.id} className="item" onClick={() => setSelectedVideo(video?.id)}>
-                            <img src={thumbNail} title={video?.title as string} />
+                        <div>
+                            <div className='title'>{video?.title}</div>
+
+                            <div key={video?.id} className="item" onClick={() => setSelectedVideo(video?.id)}>
+                                <img src={thumbNail} title={video?.title as string} />
+                            </div>
+                            <div className="category">{video?.category?.name}</div>
+
                         </div>
                     )
                 })}
