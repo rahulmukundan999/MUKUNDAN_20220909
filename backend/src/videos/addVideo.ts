@@ -17,7 +17,7 @@ const supportedVideoType = (type: string): Boolean => {
 }
 
 const storeFS = (stream: any, filename: string, type: string): Promise<object> => {
-    const uploadDir = resolve(__dirname, '../../public/VideoLibrary');
+    const uploadDir = resolve(__dirname, '../../assets/VideoLibrary');
     const path = `${uploadDir}/${filename}.${type}`;
     const location = `http://localhost:${process.env.PORT}/static/VideoLibrary/${filename}.${type}`
     return new Promise((resolve, reject) =>
@@ -32,7 +32,7 @@ const storeFS = (stream: any, filename: string, type: string): Promise<object> =
 
 const extractThumbnail = async (fileLocation: string, filename: string): Promise<string[]> => {
     const size = ["64x64", "128x128", "256x256"]
-    const uploadDir = resolve(__dirname, '../../public/VideoThumbnails');
+    const uploadDir = resolve(__dirname, '../../assets/VideoThumbnails');
     const thumbnails = [];
     for (let i = 0; i < size.length; i++) {
         const path = `${uploadDir}/thumbnail_${size[i]}`;
