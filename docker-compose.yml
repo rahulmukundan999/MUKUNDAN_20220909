@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  postgres-db:
+    image: postgres:latest
+    container_name: postgres-db
+    ports:
+      - 5432:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=casperDb
+      - POSTGRES_USER=casper
+      - POSTGRES_PASSWORD=casper@123
+  
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    depends_on: 
+      - postgres-db
+    ports:
+      - 4000:4000
+    environment:
+      - DATABASE_URL=postgresql://casper:casper@123@postgres-db:5432/casperDb?connect_timeout=300
+      - PORT=4000
+    links:
+      - postgres-db
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - REACT_APP_GRAPHQL_URL=http://localhost:4000/graphql
+    ports:
+      - 3000:3000
+    environment:
+      - FRONTEND_PORT=3000
+    
+    links:
+      - backend
+volumes: 
+  db:
+networks:
+  backend:
+  frontend:

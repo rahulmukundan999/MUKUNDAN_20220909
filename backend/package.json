@@ -1,0 +1,38 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate": "npx prisma generate",
+    "dev": "ts-node-dev src/index.ts",
+    "migrate": "prisma migrate deploy",
+    "build": "tsc && yarn generate && yarn migrate",
+    "start": "yarn build && node build/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/fluent-ffmpeg": "^2.1.20",
+    "@types/graphql-upload": "^8.0.11",
+    "@types/node": "^18.7.15",
+    "@types/express": "^4.17.13",
+    "typescript": "^4.8.2"
+  },
+  "dependencies": {
+    "@graphql-tools/schema": "^9.0.3",
+    "@prisma/client": "^4.3.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "graphql": "^16.6.0",
+    "graphql-upload": "^13.0.0",
+    "nodemon": "^2.0.19",
+    "prisma": "^4.3.1",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0"
+  }
+}
