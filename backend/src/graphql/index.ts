@@ -35,9 +35,6 @@ export class Server {
                 graphiql: true,
             })
         )
-        this.app.get("/*", (req, res) => {
-            res.sendFile(path.join(__dirname, "../../../frontend/build", "index.html"));
-        });
     }
 
     public async seedData(): Promise<void> {

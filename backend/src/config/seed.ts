@@ -9,10 +9,10 @@ const categoriesData: Prisma.CategoriesCreateInput[] = [{
     name: "Recipe",
 }]
 
-const seed = async () : Promise<void> => {
+const seed = async (): Promise<void> => {
     console.log(`Start seeding ...`)
-    const categories = await PrismaDb.categories.findMany({})
-    if (categories.length > 0) {
+    const categoriesLength = await PrismaDb.categories.count({});
+    if (categoriesLength > 0) {
         console.log(`Seeding finished.`)
         return
     }
