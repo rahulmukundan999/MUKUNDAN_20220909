@@ -5,7 +5,7 @@ WORKDIR /app
 # Cache and Install dependencies
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --production
+RUN yarn install
 
 ARG REACT_APP_GRAPHQL_URL
 ENV REACT_APP_GRAPHQL_URL $REACT_APP_GRAPHQL_URL
