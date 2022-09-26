@@ -1,7 +1,12 @@
-import { Prisma } from '@prisma/client'
 import PrismaDb from './database';
 
-const categoriesData: Prisma.CategoriesCreateInput[] = [{
+
+export type CategoriesCreateInput = {
+    name: string
+}
+
+
+const categoriesData: CategoriesCreateInput[] = [{
     name: "Exercise",
 }, {
     name: "Education",
