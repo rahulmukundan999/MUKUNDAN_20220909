@@ -13,7 +13,7 @@ export const Upload: React.FC = () => {
 
     const addVideo = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        UploadVideo({ title, categoryId, file: video })
+        UploadVideo({ title, categoryId: categoryId ? categoryId : categories?.[0]?.id, file: video })
     }
 
     return (
